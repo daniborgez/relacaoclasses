@@ -11,8 +11,8 @@ package aula07;
 public class Lutador {
     private String nome;
     private String nacionalidade;
-    private float altura;
     private int idade;
+    private float altura;
     private float peso;
     private String categoria;
     private int vitorias;
@@ -21,18 +21,30 @@ public class Lutador {
     
     //métodos personalizados 
     public void apresentar(){
-        
+        System.out.println("Lutador: " + this.getNome());
+        System.out.println("Origem: " + getNacionalidade());
+        System.out.println(this.getIdade() + " anos");
+        System.out.println(this.getAltura() + "m de altura");
+        System.out.println("Pesando: " + this.getPeso() + "Kg");
+        System.out.println("Ganhou:" + this.getVitorias());
+        System.out.println("Perdeu: " + this.getDerrotas());
+        System.out.println("Empatou: " + this.getEmpates());
     }
     public void status(){
-        
+        System.out.println(this.getNome());
+        System.out.println("é um peso:" + this.getCategoria());
+        System.out.println(this.getVitorias() + " vitorias");
+        System.out.println(this.getDerrotas() + " derrotas");
+        System.out.println(this.getEmpates() + " empates");
     }
     public void ganharLuta(){
-        
+      this.setVitorias(this.getVitorias()+1);
     }
     public void perderLuta(){
-        
+       this.setDerrotas(this.getDerrotas() + 1);
     }
     public void empatarLuta(){
+        this.setEmpates(this.getEmpates() + 1);
         
     }
     
@@ -80,7 +92,7 @@ public class Lutador {
 
     public void setPeso(float peso) {
         this.peso = peso;
-        setCategoria();
+        this.setCategoria(categoria);
     }
 
     public String getCategoria() {
@@ -92,6 +104,12 @@ public class Lutador {
             this.setCategoria("Invalido");   
         }else if(this.getPeso()<=70.3){
             this.setCategoria("Leve");
+        }else if(this.getPeso()<= 83.9){
+            this.setCategoria("Medio");
+        }else if(this.getPeso()<= 120.2){
+            this.setCategoria("Pesado");
+        }else{
+            setCategoria("invalido!");
         }
     }
 

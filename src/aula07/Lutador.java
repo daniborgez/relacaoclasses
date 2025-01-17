@@ -1,14 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package aula07;
 
-/**
- *
- * @author Daniel Borges
- */
 public class Lutador {
+    //atributo
     private String nome;
     private String nacionalidade;
     private int idade;
@@ -21,6 +15,8 @@ public class Lutador {
     
     //métodos personalizados 
     public void apresentar(){
+        System.out.println("--------------------------------------");
+        System.out.println("CHEGOU A HORA DE APRESENTADAR O LUTADOR!");
         System.out.println("Lutador: " + this.getNome());
         System.out.println("Origem: " + getNacionalidade());
         System.out.println(this.getIdade() + " anos");
@@ -31,6 +27,8 @@ public class Lutador {
         System.out.println("Empatou: " + this.getEmpates());
     }
     public void status(){
+        System.out.println("-------------------------------------");
+        System.out.println("-------------STATUS------------------");
         System.out.println(this.getNome());
         System.out.println("é um peso:" + this.getCategoria());
         System.out.println(this.getVitorias() + " vitorias");
@@ -50,17 +48,18 @@ public class Lutador {
     
     //metodos especiais
 
-    public Lutador(String no, String na,int id,float al, float pe,int vi, int de, int em) {
-        this.setNome(no);
-        this.setNacionalidade(na);
-        this.setIdade(id);
-        this.setAltura(al);
+    public Lutador(String no, String na, int id, float al, float pe, int vi, int de, int em) {
+        this.nome = no;
+        this.nacionalidade = na;
+        this.idade = id;
+        this.altura = al;
         this.setPeso(pe);
-        this.setVitorias(vi);
-        this.setDerrotas(de);
-        this.setEmpates(em);
-        
+        this.vitorias = vi;
+        this.derrotas = de;
+        this.empates = em;
     }
+
+   
 
     public String getNome() {
         return nome;
@@ -92,24 +91,24 @@ public class Lutador {
 
     public void setPeso(float peso) {
         this.peso = peso;
-        this.setCategoria(categoria);
+        this.setCategoria();
     }
 
     public String getCategoria() {
         return categoria;
     }
 
-    public void setCategoria(String categoria) {
+    private void setCategoria() {
         if(this.getPeso() < 52.2){
-            this.setCategoria("Invalido");   
+            this.categoria = "Invalido";   
         }else if(this.getPeso()<=70.3){
-            this.setCategoria("Leve");
+            this.categoria = "Leve";
         }else if(this.getPeso()<= 83.9){
-            this.setCategoria("Medio");
+            this.categoria = "Medio";
         }else if(this.getPeso()<= 120.2){
-            this.setCategoria("Pesado");
+            this.categoria = "Pesado";
         }else{
-            setCategoria("invalido!");
+            categoria = "invalido!";
         }
     }
 
